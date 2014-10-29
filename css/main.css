@@ -124,8 +124,8 @@ a:visited { color: #7C7C7C; }
 }
 
 .footer-col-2{
-    /*float:center;*/
-    margin:0px auto;
+    float:left;
+    /*margin:0px auto;*/
     margin-top:27px;
     padding-right:20px;
 }
