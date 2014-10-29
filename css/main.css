@@ -124,14 +124,25 @@ a:visited { color: #7C7C7C; }
 }
 
 .footer-col-2{
-    float:right;
+    float:left;
     margin-top:27px;
     padding-right:20px;
 }
 
-.footer-col-2 a {
+.footer-col-3 a {
     color: #A8A8A8;
 }
+
+.footer-col-3{
+    float:left;
+    margin-top:27px;
+    padding-right:20px;
+}
+
+.footer-col-3 a {
+    color: #A8A8A8;
+}
+
 
 .site-footer ul { list-style: none; }
 
