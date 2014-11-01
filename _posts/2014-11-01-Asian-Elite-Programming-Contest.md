@@ -27,55 +27,57 @@ category: algorithm
         不合法情况2：S1对S3可贡献的字符总数小于N。
         不合法情况3：S3对S3可贡献的字符总数小于N。
     代码：
-    ```cpp
-    #include <iostream>
-    #include <stdio.h>
-    #include <cstdlib>
-    #include <cstring>
-    #include <string>
-     
-    using namespace std;
-     
-    int cnta[30];
-    int cntb[30];
-    int cntc[30];
-     
-    int main() {
-        string a, b, c;
-        cin >> a >> b >> c;
-        memset(cnta, 0, sizeof(cnta));
-        memset(cntb, 0, sizeof(cntb));
-        memset(cntc, 0, sizeof(cntc));
-        int i, n = a.size();
-        for(i = 0; i < n; ++i) {
-            cnta[a[i]-'A']++;
-            cntb[b[i]-'A']++;
-            cntc[c[i]-'A']++;
-        }
-        bool ans = true;
-        for(i = 0; i < 26 && ans; ++i) {
-            if(cntc[i] > cnta[i] + cntb[i]) ans = false;
-        }
-        int numa = 0, numb = 0;
-        for(i = 0; i < 26 && ans; ++i) {
-            if(cntc[i]) {
-                numa += min(cnta[i], cntc[i]);
-            }
-        }
-        if(numa < n/2) ans = false;
-        for(i = 0; i < 26 && ans; ++i) {
-            if(cntc[i]) {
-                numb += min(cntb[i], cntc[i]);
-            }
-        }
-        if(numb < n/2)  ans = false;
-        //printf("%d %d\n", numa, numb);
-        if(ans) cout << "YES" << endl;
-        else    cout << "NO" << endl;
-     
-        return 0;
+
+```cpp
+#include <iostream>
+#include <stdio.h>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+ 
+using namespace std;
+ 
+int cnta[30];
+int cntb[30];
+int cntc[30];
+ 
+int main() {
+    string a, b, c;
+    cin >> a >> b >> c;
+    memset(cnta, 0, sizeof(cnta));
+    memset(cntb, 0, sizeof(cntb));
+    memset(cntc, 0, sizeof(cntc));
+    int i, n = a.size();
+    for(i = 0; i < n; ++i) {
+        cnta[a[i]-'A']++;
+        cntb[b[i]-'A']++;
+        cntc[c[i]-'A']++;
     }
-    ```
+    bool ans = true;
+    for(i = 0; i < 26 && ans; ++i) {
+        if(cntc[i] > cnta[i] + cntb[i]) ans = false;
+    }
+    int numa = 0, numb = 0;
+    for(i = 0; i < 26 && ans; ++i) {
+        if(cntc[i]) {
+            numa += min(cnta[i], cntc[i]);
+        }
+    }
+    if(numa < n/2) ans = false;
+    for(i = 0; i < 26 && ans; ++i) {
+        if(cntc[i]) {
+            numb += min(cntb[i], cntc[i]);
+        }
+    }
+    if(numb < n/2)  ans = false;
+    //printf("%d %d\n", numa, numb);
+    if(ans) cout << "YES" << endl;
+    else    cout << "NO" << endl;
+ 
+    return 0;
+}
+
+```
 
 ### D
     Dave is a mountaineer. He is now climbing a range of mountains.
@@ -95,67 +97,67 @@ category: algorithm
     
     解：
         这就是一个赤裸裸的栈。。。。我还二货的看了好长时间。。。智商不够用。。。
-        ```cpp
-        #include <iostream>
-        #include <stdio.h>
-        #include <cstdlib>
-        #include <cstring>
-        #include <string>
-        #include <stack>
-         
-        using namespace std;
-         
-        stack< pair<int, int> > st;
-         
-        const int LEN = 100010;
-         
-        int h[LEN];
-        int cnt1[LEN];
-        int cnt2[LEN];
-         
-        int main() {
-            //freopen("data.in", "r", stdin);
-            int n, i;
-            scanf("%d", &n);
-            for(i = 0; i < n; ++i) {
-                scanf("%d", &h[i]);
-            }
-            while(!st.empty())  st.pop();
-            memset(cnt1, 0, sizeof(cnt1));
-            memset(cnt2, 0, sizeof(cnt2));
-         
-            st.push(make_pair(0, h[0]));
-         
-            for(i = 1; i < n; ++i) {
-                while(!st.empty() && st.top().second <= h[i]) {
-                    st.pop();
-                }
-                if(st.empty())  cnt1[i] = i;
-                else    cnt1[i] = i - st.top().first - 1;
-                //printf("<<<<%d %d\n", i, cnt1[i]);
-                st.push(make_pair(i, h[i]));
-            }
-         
-            while(!st.empty())  st.pop();
-            st.push(make_pair(n - 1, h[n-1]));
-         
-            for(i = n - 2; i >= 0; --i) {
-                while(!st.empty() && st.top().second <= h[i]) {
-                    st.pop();
-                }
-                if(st.empty())  cnt2[i] = n - 1 - i;
-                else    cnt2[i] = st.top().first - i - 1;
-                //printf(">>>>%d %d\n", i, cnt1[i]);
-                st.push(make_pair(i, h[i]));
-            }
-         
-            for(i = 0; i < n; ++i) {
-                printf("%d\n", cnt1[i] + cnt2[i]);
-            }
-         
-            return 0;
+```cpp
+#include <iostream>
+#include <stdio.h>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+#include <stack>
+ 
+using namespace std;
+ 
+stack< pair<int, int> > st;
+ 
+const int LEN = 100010;
+ 
+int h[LEN];
+int cnt1[LEN];
+int cnt2[LEN];
+ 
+int main() {
+    //freopen("data.in", "r", stdin);
+    int n, i;
+    scanf("%d", &n);
+    for(i = 0; i < n; ++i) {
+        scanf("%d", &h[i]);
+    }
+    while(!st.empty())  st.pop();
+    memset(cnt1, 0, sizeof(cnt1));
+    memset(cnt2, 0, sizeof(cnt2));
+ 
+    st.push(make_pair(0, h[0]));
+ 
+    for(i = 1; i < n; ++i) {
+        while(!st.empty() && st.top().second <= h[i]) {
+            st.pop();
         }
-        ```
+        if(st.empty())  cnt1[i] = i;
+        else    cnt1[i] = i - st.top().first - 1;
+        //printf("<<<<%d %d\n", i, cnt1[i]);
+        st.push(make_pair(i, h[i]));
+    }
+ 
+    while(!st.empty())  st.pop();
+    st.push(make_pair(n - 1, h[n-1]));
+ 
+    for(i = n - 2; i >= 0; --i) {
+        while(!st.empty() && st.top().second <= h[i]) {
+            st.pop();
+        }
+        if(st.empty())  cnt2[i] = n - 1 - i;
+        else    cnt2[i] = st.top().first - i - 1;
+        //printf(">>>>%d %d\n", i, cnt1[i]);
+        st.push(make_pair(i, h[i]));
+    }
+ 
+    for(i = 0; i < n; ++i) {
+        printf("%d\n", cnt1[i] + cnt2[i]);
+    }
+ 
+    return 0;
+}
+```
 
 
 - 做完这野鸡比赛暴露了好多问题，好久不刷题完全是智商退化。。。以后尽量抽时间刷刷BestCoder吧。。。不能这么搓下去！
