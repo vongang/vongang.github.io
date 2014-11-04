@@ -1,6 +1,6 @@
 ---
 title: AT&T汇编笔记-C语言函数执行过程
-post: layout
+layout: post
 category: ASM
 ---
 
