@@ -6,12 +6,12 @@ category: Probability
 
 # 一个有趣的概率问题
 
-** Problem Description **
+**Problem Description**
 
 > 牌盒里有三张牌，一张是两面黑色，一张是两面红色，一张是一面红一面黑。问，当抽出一张牌，你看到牌的正面是红色时，另一面也是红色的几率是多少？
 
 
-** Solution **
+**Solution**
 
 这个问题是[Monty Hall问题](https://en.wikipedia.org/wiki/Monty_Hall_problem)的变形，不过可以通过简单的分析简化问题。
 注意到问题是*`当看到的牌是红色时，另一面也为红色的概率`*这样一个条件概率。
