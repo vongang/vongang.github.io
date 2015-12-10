@@ -9,7 +9,7 @@ category: OpenGL Shader C++
 The following figure is a (very) simplified diagram of the pipeline stages and the data that travels amongst them. Although extremely simplified it is enough to present some important concepts for shader programming. In this subsection the fixed functionality of the pipeline is presented. Note that this pipeline is an abstraction and does not necessarily meet any particular implementation in all its steps.
 
 
-![](/img/pic/shader_pipeline.jpg)
+![](/img/pic/shader_pipeline.png)
 
 ### Vertex Transformation
 
@@ -54,7 +54,7 @@ If successful the fragment information is then used to update the pixel’s valu
 ### Visual Summary of the Fixed Functionality
 
 The following figure presents a visual description of the stages presented above:
-![](/img/pic/visualpipeline.jpg)
+![](/img/pic/visualpipeline.png)
 
 ### Replacing Fixed Functionality
 
