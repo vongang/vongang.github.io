@@ -5,4 +5,4 @@ category: life
 ---
 
 ![](/img/pic/chlr1.JPG)
-![](/img/pic/chlr2.JPG)
+![](/img/pic/chlr2.jpg)
