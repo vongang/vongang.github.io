@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OpenGL Shader Processing Pipeline
-categories: [OpenGL,Shader,C++]
+categories: [OpenGL, Shader, C++]
 ---
 
 [source](http://www.lighthouse3d.com/tutorials/glsl-12-tutorial/pipeline-overview/)
